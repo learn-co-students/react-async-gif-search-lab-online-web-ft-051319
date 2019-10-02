@@ -8,24 +8,23 @@ class GifListContainer extends React.Component {
     }
 
     componentDidMount() {
-        this.getGifs('');
+        this.getGifs();
     }
 
-    getGifs = (query) => {
+    getGifs = (query = '') => {
         let url = `http://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g`
+        // Can also limit to first 3 in url
+        // `https://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g&limit=3`
+
         fetch(url)
             .then(r => r.json())
             .then(json => this.setState({gifs: json.data.slice(0,3)}))
     }
 
-    handleSubmit = (query) => {
-        this.getGifs(query);
-    }
-
     render() {
         return (
             <div>
-                <GifSearch handleSubmit={this.handleSubmit} />
+                <GifSearch getGifs={this.getGifs} />
                 <GifList gifs={this.state.gifs} />
             </div>
         )

@@ -2,18 +2,18 @@ import React from 'react'
 
 class GifSearch extends React.Component {
     state = {
-        search: ''
+        query: ''
     }
 
     handleInputText = (e) => {
-        this.setState({search: e.target.value})
+        this.setState({query: e.target.value})
     }
 
     render() {
         return (
             <div>
-                <input type="text" id="search" value={this.state.search} onChange={this.handleInputText} />
-                <button onClick={() => this.props.handleSubmit(this.state.search)} >Find Gifs</button>
+                <input type="text" id="query" value={this.state.query} onChange={this.handleInputText} />
+                <button onClick={() => this.props.getGifs(this.state.query)} >Find Gifs</button>
             </div>
         )
     }
