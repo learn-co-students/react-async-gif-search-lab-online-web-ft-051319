@@ -18,7 +18,7 @@ export default class GifListContainer extends Component {
         .then(res => res.json())
         .then(json => {
             this.setState({
-                gifs: json.data.map(gif => gif.images.original.url)
+                gifs: json.data.slice(0,3)
             })
         })
     }
