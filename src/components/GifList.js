@@ -8,41 +8,28 @@ class GifList extends React.Component {
     renderGifs = () => {
 
       var returnString = ""
+      let firstObj = this.props.images[0]
+
+    //  console.log(firstObj)
+    //  debugger
       for (let i=0; i < 3; i++) {
-
-
-        class GifList extends React.Component {
-            constructor() {
-              super()
-            }
-            renderGifs = () => {
-
-              var returnString = ""
-              for (let i=0; i < 3; i++) {
-
-                console.log(this.props.images[i])
-                returnString = returnString.concat (`<img src=${this.props.images[i]} />`)
+            //    console.log(this.props.images[i])
+               returnString = returnString.concat (`<img src="${this.props.images[i]}"> </img>`)
               //  debugger;
               }
 
-              console.log(returnString)
-              return returnString
-            }
-            render() {
-              return(<div>
-                {this.renderGifs()}</div>)
-            }
-        }
-
       //  debugger;
-      }
 
-      console.log(returnString)
+  //    console.log(returnString)
       return returnString
+
+    }
+    componentdidMount() {
+      this.renderGifs()
     }
     render() {
-      return(<div>
-        {this.renderGifs()}</div>)
+      return(<p>
+        {this.renderGifs()}</p>)
     }
 }
 

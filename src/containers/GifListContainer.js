@@ -19,7 +19,12 @@ class GifListContainer extends React.Component {
 
     fetch(imageFetchURL)
       .then (resp=> resp.json())
-      .then (resp=> this.setState({images: resp.data}))
+      .then (resp=> {
+
+                    var imageArray=resp.data.map(respElem=> {return (respElem.url)})
+                    console.log(imageArray)
+                    this.setState({images: imageArray})
+                  } )
 
   }
 render() {
