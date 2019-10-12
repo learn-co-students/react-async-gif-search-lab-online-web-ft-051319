@@ -1,0 +1,38 @@
+class GifList extends React.Component {}
+    renderGifs = () => {
+
+      var returnString = ""
+      let firstObj = this.props.images[0]
+
+    //  console.log(firstObj)
+    //  debugger
+      for (let i=0; i < 3; i++) {
+            //    console.log(this.props.images[i])
+               returnString = returnString.concat (`<img "${this.props.images[i]}"> </img>`)
+              //  debugger;
+              }
+
+      //  debugger;
+
+      /*
+          props.images.map((imgElem,idx) =>{
+            return (<li id={idx}><img src={imgElem.images.original.url} /></li>)
+          } )
+          */
+
+--
+props.images.map((imgElem,idx) =>{
+  return (<li id={idx}><img src={imgElem.images.original.url} /></li>)
+} )
+---
+function () {
+  console.log(props.images)
+  var retArray=[]
+  for (var i=0; i<3; i++)
+    {
+      retArray.push(<li id={i}><img src={props.images[i].original.url} /></li>)
+    }
+
+
+    return (retArray)
+  }

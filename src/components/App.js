@@ -9,6 +9,7 @@ const App = () => {
     <div>
         < NavBar color='black' title="Giphy Search" />
       < GifListContainer />
+
     </div>
   )
 }
